@@ -47,7 +47,7 @@ export default function HotelCard({ hotel }: HotelCardProps) {
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
             if (target.parentElement) {
-              target.parentElement.className += ' bg-gradient-to-br from-blue-400 to-purple-500';
+              target.parentElement.style.backgroundColor = 'var(--secondary-blue)';
             }
           }}
         />
@@ -97,8 +97,8 @@ export default function HotelCard({ hotel }: HotelCardProps) {
         {hotel.price && (
           <div className="mb-4">
             <p 
-              className="text-lg font-semibold transition-colors"
-              style={{ color: 'var(--card-text)' }}
+              className="text-2xl font-bold transition-colors"
+              style={{ color: 'var(--accent-orange)' }}
             >
               {hotel.price}
             </p>

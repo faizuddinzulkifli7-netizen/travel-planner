@@ -45,6 +45,14 @@ export default function ChatPanel({ onSendMessage, isLoading = false }: ChatPane
             placeholder="Describe your ideal hotel (e.g., 'Luxury hotel in Tokyo with spa')"
             disabled={isLoading}
             className="flex-1 px-4 py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--secondary-blue)';
+              e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0, 113, 194, 0.1)';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--card-border)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
             style={{
               backgroundColor: 'var(--card-bg)',
               color: 'var(--card-text)',
@@ -58,16 +66,16 @@ export default function ChatPanel({ onSendMessage, isLoading = false }: ChatPane
             disabled={isLoading || !inputValue.trim()}
             className="px-6 py-3 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
             style={{
-              backgroundColor: 'var(--button-bg)',
-              color: 'var(--button-text)'
+              backgroundColor: 'var(--button-accent)',
+              color: '#ffffff'
             }}
             onMouseEnter={(e) => {
               if (!isLoading && inputValue.trim()) {
-                e.currentTarget.style.backgroundColor = 'var(--button-hover)';
+                e.currentTarget.style.backgroundColor = 'var(--button-accent-hover)';
               }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+              e.currentTarget.style.backgroundColor = 'var(--button-accent)';
             }}
           >
             {isLoading ? (
@@ -101,9 +109,9 @@ export default function ChatPanel({ onSendMessage, isLoading = false }: ChatPane
               disabled={isLoading}
               className="px-4 py-3 rounded-full text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
               style={{
-                backgroundColor: 'var(--button-bg)',
-                color: 'var(--button-text)',
-                borderColor: 'var(--card-border)',
+                backgroundColor: 'var(--secondary-blue)',
+                color: '#ffffff',
+                borderColor: 'var(--secondary-blue)',
                 borderWidth: '1px',
                 borderStyle: 'solid'
               }}
@@ -113,7 +121,7 @@ export default function ChatPanel({ onSendMessage, isLoading = false }: ChatPane
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+                e.currentTarget.style.backgroundColor = 'var(--secondary-blue)';
               }}
             >
               {prompt}

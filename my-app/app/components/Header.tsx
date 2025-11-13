@@ -21,7 +21,7 @@ export default function Header() {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
-          style={{ color: 'var(--button-text)' }}
+          style={{ color: 'var(--header-text)' }}
         >
           <path
             strokeLinecap="round"
@@ -39,7 +39,7 @@ export default function Header() {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
-          style={{ color: 'var(--button-text)' }}
+          style={{ color: 'var(--header-text)' }}
         >
           <path
             strokeLinecap="round"
@@ -66,7 +66,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/home" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--accent-teal)' }}>
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <span 
@@ -84,12 +84,12 @@ export default function Header() {
                 href="/home"
                 className="px-4 py-2 rounded-lg transition-all"
                 style={{
-                  backgroundColor: pathname === '/' || pathname === '/home' ? 'var(--button-bg)' : 'transparent',
-                  color: pathname === '/' || pathname === '/home' ? 'var(--button-text)' : 'var(--header-text)'
+                  backgroundColor: pathname === '/' || pathname === '/home' ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
+                  color: 'var(--header-text)'
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== '/' && pathname !== '/home') {
-                    e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -104,12 +104,12 @@ export default function Header() {
                 href="/blog"
                 className="px-4 py-2 rounded-lg transition-all"
                 style={{
-                  backgroundColor: pathname === '/blog' ? 'var(--button-bg)' : 'transparent',
-                  color: pathname === '/blog' ? 'var(--button-text)' : 'var(--header-text)'
+                  backgroundColor: pathname === '/blog' ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
+                  color: 'var(--header-text)'
                 }}
                 onMouseEnter={(e) => {
                   if (pathname !== '/blog') {
-                    e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -127,14 +127,14 @@ export default function Header() {
               onClick={cycleTheme}
               className="p-2 rounded-lg transition-colors"
               style={{
-                backgroundColor: 'var(--button-bg)',
-                color: 'var(--button-text)'
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                color: 'var(--header-text)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--button-hover)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
               }}
               aria-label={`Current theme: ${theme}. Click to toggle theme`}
               title={`Theme: ${theme}`}

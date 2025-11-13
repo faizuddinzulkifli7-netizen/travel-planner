@@ -128,7 +128,7 @@ export default function BlogPage() {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       if (target.parentElement) {
-                        target.parentElement.className += ' bg-gradient-to-br from-blue-400 to-purple-500';
+                        target.parentElement.style.backgroundColor = 'var(--secondary-blue)';
                       }
                     }}
                   />
@@ -140,8 +140,8 @@ export default function BlogPage() {
                     <span
                       className="inline-block px-3 py-1 rounded-full text-xs font-medium"
                       style={{
-                        backgroundColor: 'var(--button-bg)',
-                        color: 'var(--button-text)'
+                        backgroundColor: 'var(--accent-teal)',
+                        color: '#ffffff'
                       }}
                     >
                       {post.category}
@@ -174,14 +174,14 @@ export default function BlogPage() {
                   <button
                     className="w-full py-2 rounded-lg font-medium transition-all hover:scale-105"
                     style={{
-                      backgroundColor: 'var(--button-bg)',
-                      color: 'var(--button-text)'
+                      backgroundColor: 'var(--secondary-blue)',
+                      color: '#ffffff'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = 'var(--button-hover)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+                      e.currentTarget.style.backgroundColor = 'var(--secondary-blue)';
                     }}
                   >
                     Read More
