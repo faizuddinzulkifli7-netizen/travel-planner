@@ -162,6 +162,96 @@ const BLOG_POSTS: BlogPost[] = [
     date: '2023-12-15',
     category: 'Pet Travel',
     imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
+  },
+  {
+    id: '7',
+    title: 'Eco-Friendly Hotels: Sustainable Stays for Conscious Travelers',
+    excerpt: 'Discover hotels that prioritize sustainability and environmental responsibility without compromising on comfort.',
+    content: 'Eco-friendly hotels are becoming increasingly popular as travelers seek sustainable accommodation options. This guide highlights hotels that use renewable energy, implement water conservation measures, offer locally sourced food, and support local communities. Learn how to identify truly sustainable hotels and make environmentally conscious travel choices that benefit both you and the planet.',
+    author: 'Lisa Green',
+    date: '2023-12-10',
+    category: 'Sustainable Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
+  },
+  {
+    id: '8',
+    title: 'Spa Hotels: Ultimate Relaxation and Wellness Retreats',
+    excerpt: 'Unwind and rejuvenate at the world\'s best spa hotels, offering luxurious treatments and wellness programs.',
+    content: 'Spa hotels provide the perfect escape for those seeking relaxation and rejuvenation. This comprehensive guide covers top spa hotels worldwide, featuring world-class treatments, thermal baths, yoga classes, and wellness programs. From traditional Thai massages to modern hydrotherapy, discover hotels that prioritize your physical and mental well-being during your stay.',
+    author: 'Amanda White',
+    date: '2023-12-05',
+    category: 'Wellness Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
+  },
+  {
+    id: '9',
+    title: 'Historic Hotels: Staying in Living History',
+    excerpt: 'Experience the charm and character of historic hotels that have stood the test of time.',
+    content: 'Historic hotels offer a unique blend of old-world charm and modern amenities. This article explores iconic hotels that have preserved their historical significance while providing contemporary comfort. From castles and palaces to grand railway hotels, discover properties where history comes alive. Learn about restoration efforts, architectural significance, and the stories behind these remarkable establishments.',
+    author: 'James Anderson',
+    date: '2023-11-28',
+    category: 'Historic Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
+  },
+  {
+    id: '10',
+    title: 'Boutique Hotels: Unique Stays with Character',
+    excerpt: 'Explore charming boutique hotels that offer personalized service and distinctive design.',
+    content: 'Boutique hotels provide an alternative to chain hotels, offering unique character, personalized service, and often more intimate settings. This guide helps you discover boutique hotels that stand out with their distinctive design, local culture integration, and attention to detail. From urban lofts to countryside retreats, find properties that reflect the personality of their location.',
+    author: 'Sophie Brown',
+    date: '2023-11-20',
+    category: 'Boutique Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
+  },
+  {
+    id: '11',
+    title: 'All-Inclusive Resorts: Everything You Need in One Place',
+    excerpt: 'Discover the convenience and value of all-inclusive resorts for stress-free vacations.',
+    content: 'All-inclusive resorts take the guesswork out of vacation planning by bundling accommodations, meals, drinks, and activities into one price. This comprehensive guide covers what to expect from all-inclusive properties, from family-friendly options to adults-only retreats. Learn about tipping policies, activity schedules, dining options, and how to maximize your all-inclusive experience.',
+    author: 'Mark Thompson',
+    date: '2023-11-15',
+    category: 'Resort Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
+  },
+  {
+    id: '12',
+    title: 'Ski Resort Hotels: Your Gateway to the Slopes',
+    excerpt: 'Find the perfect ski-in, ski-out accommodations for your winter mountain adventure.',
+    content: 'Ski resort hotels offer convenient access to the slopes along with après-ski amenities. This guide covers everything from luxury ski lodges to budget-friendly options near popular ski destinations. Learn about ski storage, equipment rental, proximity to lifts, and what makes a hotel ideal for ski vacations. Whether you\'re a beginner or expert skier, find the perfect base for your mountain getaway.',
+    author: 'Chris Wilson',
+    date: '2023-11-10',
+    category: 'Adventure Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
+  },
+  {
+    id: '13',
+    title: 'Extended Stay Hotels: Home Away from Home',
+    excerpt: 'Comfortable accommodations for longer trips with all the amenities you need for extended stays.',
+    content: 'Extended stay hotels are designed for travelers who need accommodations for weeks or months. These properties typically feature kitchenettes, larger living spaces, laundry facilities, and work areas. This guide helps you choose the right extended stay hotel based on location, amenities, and pricing. Perfect for business travelers, relocating families, or anyone needing temporary housing.',
+    author: 'Jennifer Lee',
+    date: '2023-11-05',
+    category: 'Extended Stay',
+    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
+  },
+  {
+    id: '14',
+    title: 'Airport Hotels: Convenient Stays for Travelers',
+    excerpt: 'Make your travel easier with strategically located airport hotels for early flights and layovers.',
+    content: 'Airport hotels provide convenience for travelers with early morning flights, long layovers, or delayed connections. This guide covers what to look for in airport hotels, including shuttle services, soundproofing, and proximity to terminals. Learn about booking strategies, amenities that matter most, and how to make the most of your airport hotel stay, whether it\'s for a few hours or overnight.',
+    author: 'Daniel Park',
+    date: '2023-10-30',
+    category: 'Business Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
+  },
+  {
+    id: '15',
+    title: 'Golf Resort Hotels: Perfect for Golf Enthusiasts',
+    excerpt: 'Stay and play at world-class golf resorts offering championship courses and luxury accommodations.',
+    content: 'Golf resort hotels combine exceptional accommodations with access to premier golf courses. This guide highlights resorts featuring championship courses, golf packages, pro shops, and practice facilities. Whether you\'re planning a golf-focused vacation or want to enjoy a round during your stay, discover resorts that cater to golfers of all skill levels with stunning course views and golf-centric amenities.',
+    author: 'Patricia Davis',
+    date: '2023-10-25',
+    category: 'Sports Travel',
+    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
   }
 ];
 
@@ -173,6 +263,26 @@ export default function HomePage() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  
+  // Blog pagination state
+  const POSTS_PER_PAGE = 6;
+  const [currentBlogPage, setCurrentBlogPage] = useState(1);
+  const totalBlogPages = Math.ceil(BLOG_POSTS.length / POSTS_PER_PAGE);
+  const showPagination = BLOG_POSTS.length > POSTS_PER_PAGE;
+  
+  // Calculate paginated blog posts
+  const startIndex = (currentBlogPage - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const paginatedBlogPosts = BLOG_POSTS.slice(startIndex, endIndex);
+  
+  const handleBlogPageChange = (page: number) => {
+    setCurrentBlogPage(page);
+    // Scroll to blog section when page changes
+    const blogSection = document.getElementById('blog-section');
+    if (blogSection) {
+      blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const handleSendMessage = async (message: string) => {
     setIsLoading(true);
@@ -264,7 +374,7 @@ export default function HomePage() {
           )}
 
           {/* Blog Section - Always visible */}
-          <div className="mt-16">
+          <div id="blog-section" className="mt-16">
             <div className="text-center mb-12">
               <h2 
                 className="text-3xl md:text-4xl font-bold mb-4 transition-colors"
@@ -282,7 +392,7 @@ export default function HomePage() {
 
             {/* Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {BLOG_POSTS.map((post) => (
+              {paginatedBlogPosts.map((post) => (
                 <article
                   key={post.id}
                   className="rounded-lg shadow-lg overflow-hidden transition-all hover:shadow-xl"
@@ -365,6 +475,87 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
+
+            {/* Pagination Controls */}
+            {showPagination && (
+              <div className="mt-12 flex items-center justify-center gap-2">
+                {/* Previous Button */}
+                <button
+                  onClick={() => handleBlogPageChange(currentBlogPage - 1)}
+                  disabled={currentBlogPage === 1}
+                  className="px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    backgroundColor: currentBlogPage === 1 ? 'transparent' : 'var(--secondary-blue)',
+                    color: currentBlogPage === 1 ? 'var(--card-text-secondary)' : '#ffffff',
+                    border: currentBlogPage === 1 ? '1px solid var(--card-border)' : 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentBlogPage !== 1) {
+                      e.currentTarget.style.backgroundColor = 'var(--button-hover)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentBlogPage !== 1) {
+                      e.currentTarget.style.backgroundColor = 'var(--secondary-blue)';
+                    }
+                  }}
+                >
+                  Previous
+                </button>
+
+                {/* Page Numbers */}
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: totalBlogPages }, (_, i) => i + 1).map((pageNum) => (
+                    <button
+                      key={pageNum}
+                      onClick={() => handleBlogPageChange(pageNum)}
+                      className="w-10 h-10 rounded-lg font-medium transition-all"
+                      style={{
+                        backgroundColor: currentBlogPage === pageNum ? 'var(--secondary-blue)' : 'transparent',
+                        color: currentBlogPage === pageNum ? '#ffffff' : 'var(--card-text)',
+                        border: currentBlogPage === pageNum ? 'none' : '1px solid var(--card-border)'
+                      }}
+                      onMouseEnter={(e) => {
+                        if (currentBlogPage !== pageNum) {
+                          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (currentBlogPage !== pageNum) {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                        }
+                      }}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={() => handleBlogPageChange(currentBlogPage + 1)}
+                  disabled={currentBlogPage === totalBlogPages}
+                  className="px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    backgroundColor: currentBlogPage === totalBlogPages ? 'transparent' : 'var(--secondary-blue)',
+                    color: currentBlogPage === totalBlogPages ? 'var(--card-text-secondary)' : '#ffffff',
+                    border: currentBlogPage === totalBlogPages ? '1px solid var(--card-border)' : 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentBlogPage !== totalBlogPages) {
+                      e.currentTarget.style.backgroundColor = 'var(--button-hover)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentBlogPage !== totalBlogPages) {
+                      e.currentTarget.style.backgroundColor = 'var(--secondary-blue)';
+                    }
+                  }}
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
 
         </div>
