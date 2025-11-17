@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Top 10 Luxury Hotels in Paris for Your Dream Vacation",
+    "excerpt": "Discover the most luxurious accommodations in the City of Light, from historic palaces to modern boutique hotels.",
+    "content": "Paris, the City of Light, offers some of the world's most luxurious hotel experiences. From the iconic Ritz Paris to modern boutique hotels, this guide covers the top 10 luxury hotels that combine elegance, exceptional service, and prime locations. Each hotel offers unique amenities, from Michelin-starred restaurants to world-class spas, ensuring an unforgettable stay in the French capital.",
+    "author": "Sarah Johnson",
+    "date": "2024-01-15",
+    "category": "Luxury Travel",
+    "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop"
+  },
+  {
+    "id": "2",
+    "title": "Budget-Friendly Beach Hotels: Your Guide to Affordable Coastal Stays",
+    "excerpt": "Enjoy stunning ocean views without breaking the bank. Our curated list of budget-friendly beach hotels offers comfort and location.",
+    "content": "Traveling to the beach doesn't have to be expensive. This comprehensive guide features budget-friendly hotels near popular beaches worldwide. We've selected properties that offer great value, clean accommodations, and proximity to the water. From Southeast Asia to the Mediterranean, discover affordable options that don't compromise on the beach experience.",
+    "author": "Michael Chen",
+    "date": "2024-01-10",
+    "category": "Budget Travel",
+    "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop"
+  }
+]

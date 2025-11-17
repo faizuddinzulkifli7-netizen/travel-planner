@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ChatPanel from '../components/ChatPanel';
 import HotelCard from '../components/HotelCard';
 
@@ -102,158 +102,8 @@ const generateMockHotels = (query: string): Hotel[] => {
   return mockHotels.slice(0, 3); // Return 3 hotels for demo
 };
 
-const BLOG_POSTS: BlogPost[] = [
-  {
-    id: '1',
-    title: 'Top 10 Luxury Hotels in Paris for Your Dream Vacation',
-    excerpt: 'Discover the most luxurious accommodations in the City of Light, from historic palaces to modern boutique hotels.',
-    content: 'Paris, the City of Light, offers some of the world\'s most luxurious hotel experiences. From the iconic Ritz Paris to modern boutique hotels, this guide covers the top 10 luxury hotels that combine elegance, exceptional service, and prime locations. Each hotel offers unique amenities, from Michelin-starred restaurants to world-class spas, ensuring an unforgettable stay in the French capital.',
-    author: 'Sarah Johnson',
-    date: '2024-01-15',
-    category: 'Luxury Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
-  },
-  {
-    id: '2',
-    title: 'Budget-Friendly Beach Hotels: Your Guide to Affordable Coastal Stays',
-    excerpt: 'Enjoy stunning ocean views without breaking the bank. Our curated list of budget-friendly beach hotels offers comfort and location.',
-    content: 'Traveling to the beach doesn\'t have to be expensive. This comprehensive guide features budget-friendly hotels near popular beaches worldwide. We\'ve selected properties that offer great value, clean accommodations, and proximity to the water. From Southeast Asia to the Mediterranean, discover affordable options that don\'t compromise on the beach experience.',
-    author: 'Michael Chen',
-    date: '2024-01-10',
-    category: 'Budget Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
-  },
-  {
-    id: '3',
-    title: 'Family-Friendly Hotels: What to Look For When Traveling with Kids',
-    excerpt: 'Planning a family vacation? Learn what amenities and features make a hotel truly family-friendly.',
-    content: 'Traveling with children requires special considerations when choosing accommodations. This article outlines essential features of family-friendly hotels, including kid-friendly pools, connecting rooms, play areas, and dining options. We also provide tips on booking strategies, safety considerations, and how to ensure both parents and children have an enjoyable stay.',
-    author: 'Emily Rodriguez',
-    date: '2024-01-05',
-    category: 'Family Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
-  },
-  {
-    id: '4',
-    title: 'Business Hotels: Maximizing Productivity on the Road',
-    excerpt: 'Essential features every business traveler should look for in a hotel, from high-speed internet to meeting facilities.',
-    content: 'Business travel demands specific hotel amenities to ensure productivity and comfort. This guide covers the must-have features for business hotels, including reliable Wi-Fi, work-friendly rooms, business centers, and convenient locations. We also discuss loyalty programs, expense management, and how to maintain work-life balance while traveling for business.',
-    author: 'David Kim',
-    date: '2023-12-28',
-    category: 'Business Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
-  },
-  {
-    id: '5',
-    title: 'Romantic Getaways: Hotels Perfect for Couples',
-    excerpt: 'Create unforgettable memories with our selection of romantic hotels featuring stunning views and intimate settings.',
-    content: 'Whether celebrating an anniversary, honeymoon, or just a romantic escape, choosing the right hotel sets the tone for your special time together. This article highlights hotels known for their romantic ambiance, from overwater bungalows to mountain retreats. We cover amenities like couples\' spas, private balconies, and fine dining experiences that make these properties perfect for romance.',
-    author: 'Jessica Martinez',
-    date: '2023-12-20',
-    category: 'Romantic Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
-  },
-  {
-    id: '6',
-    title: 'Pet-Friendly Hotels: Traveling with Your Furry Friends',
-    excerpt: 'Don\'t leave your pets behind! Discover hotels that welcome your four-legged family members with open arms.',
-    content: 'More hotels than ever are becoming pet-friendly, recognizing that pets are part of the family. This guide explores what makes a hotel truly pet-friendly, from pet amenities and policies to nearby parks and services. Learn about pet fees, size restrictions, and how to prepare your pet for hotel stays. We\'ve also included tips for ensuring a comfortable experience for both you and your pet.',
-    author: 'Robert Taylor',
-    date: '2023-12-15',
-    category: 'Pet Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
-  },
-  {
-    id: '7',
-    title: 'Eco-Friendly Hotels: Sustainable Stays for Conscious Travelers',
-    excerpt: 'Discover hotels that prioritize sustainability and environmental responsibility without compromising on comfort.',
-    content: 'Eco-friendly hotels are becoming increasingly popular as travelers seek sustainable accommodation options. This guide highlights hotels that use renewable energy, implement water conservation measures, offer locally sourced food, and support local communities. Learn how to identify truly sustainable hotels and make environmentally conscious travel choices that benefit both you and the planet.',
-    author: 'Lisa Green',
-    date: '2023-12-10',
-    category: 'Sustainable Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
-  },
-  {
-    id: '8',
-    title: 'Spa Hotels: Ultimate Relaxation and Wellness Retreats',
-    excerpt: 'Unwind and rejuvenate at the world\'s best spa hotels, offering luxurious treatments and wellness programs.',
-    content: 'Spa hotels provide the perfect escape for those seeking relaxation and rejuvenation. This comprehensive guide covers top spa hotels worldwide, featuring world-class treatments, thermal baths, yoga classes, and wellness programs. From traditional Thai massages to modern hydrotherapy, discover hotels that prioritize your physical and mental well-being during your stay.',
-    author: 'Amanda White',
-    date: '2023-12-05',
-    category: 'Wellness Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
-  },
-  {
-    id: '9',
-    title: 'Historic Hotels: Staying in Living History',
-    excerpt: 'Experience the charm and character of historic hotels that have stood the test of time.',
-    content: 'Historic hotels offer a unique blend of old-world charm and modern amenities. This article explores iconic hotels that have preserved their historical significance while providing contemporary comfort. From castles and palaces to grand railway hotels, discover properties where history comes alive. Learn about restoration efforts, architectural significance, and the stories behind these remarkable establishments.',
-    author: 'James Anderson',
-    date: '2023-11-28',
-    category: 'Historic Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
-  },
-  {
-    id: '10',
-    title: 'Boutique Hotels: Unique Stays with Character',
-    excerpt: 'Explore charming boutique hotels that offer personalized service and distinctive design.',
-    content: 'Boutique hotels provide an alternative to chain hotels, offering unique character, personalized service, and often more intimate settings. This guide helps you discover boutique hotels that stand out with their distinctive design, local culture integration, and attention to detail. From urban lofts to countryside retreats, find properties that reflect the personality of their location.',
-    author: 'Sophie Brown',
-    date: '2023-11-20',
-    category: 'Boutique Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
-  },
-  {
-    id: '11',
-    title: 'All-Inclusive Resorts: Everything You Need in One Place',
-    excerpt: 'Discover the convenience and value of all-inclusive resorts for stress-free vacations.',
-    content: 'All-inclusive resorts take the guesswork out of vacation planning by bundling accommodations, meals, drinks, and activities into one price. This comprehensive guide covers what to expect from all-inclusive properties, from family-friendly options to adults-only retreats. Learn about tipping policies, activity schedules, dining options, and how to maximize your all-inclusive experience.',
-    author: 'Mark Thompson',
-    date: '2023-11-15',
-    category: 'Resort Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
-  },
-  {
-    id: '12',
-    title: 'Ski Resort Hotels: Your Gateway to the Slopes',
-    excerpt: 'Find the perfect ski-in, ski-out accommodations for your winter mountain adventure.',
-    content: 'Ski resort hotels offer convenient access to the slopes along with après-ski amenities. This guide covers everything from luxury ski lodges to budget-friendly options near popular ski destinations. Learn about ski storage, equipment rental, proximity to lifts, and what makes a hotel ideal for ski vacations. Whether you\'re a beginner or expert skier, find the perfect base for your mountain getaway.',
-    author: 'Chris Wilson',
-    date: '2023-11-10',
-    category: 'Adventure Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
-  },
-  {
-    id: '13',
-    title: 'Extended Stay Hotels: Home Away from Home',
-    excerpt: 'Comfortable accommodations for longer trips with all the amenities you need for extended stays.',
-    content: 'Extended stay hotels are designed for travelers who need accommodations for weeks or months. These properties typically feature kitchenettes, larger living spaces, laundry facilities, and work areas. This guide helps you choose the right extended stay hotel based on location, amenities, and pricing. Perfect for business travelers, relocating families, or anyone needing temporary housing.',
-    author: 'Jennifer Lee',
-    date: '2023-11-05',
-    category: 'Extended Stay',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop'
-  },
-  {
-    id: '14',
-    title: 'Airport Hotels: Convenient Stays for Travelers',
-    excerpt: 'Make your travel easier with strategically located airport hotels for early flights and layovers.',
-    content: 'Airport hotels provide convenience for travelers with early morning flights, long layovers, or delayed connections. This guide covers what to look for in airport hotels, including shuttle services, soundproofing, and proximity to terminals. Learn about booking strategies, amenities that matter most, and how to make the most of your airport hotel stay, whether it\'s for a few hours or overnight.',
-    author: 'Daniel Park',
-    date: '2023-10-30',
-    category: 'Business Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop'
-  },
-  {
-    id: '15',
-    title: 'Golf Resort Hotels: Perfect for Golf Enthusiasts',
-    excerpt: 'Stay and play at world-class golf resorts offering championship courses and luxury accommodations.',
-    content: 'Golf resort hotels combine exceptional accommodations with access to premier golf courses. This guide highlights resorts featuring championship courses, golf packages, pro shops, and practice facilities. Whether you\'re planning a golf-focused vacation or want to enjoy a round during your stay, discover resorts that cater to golfers of all skill levels with stunning course views and golf-centric amenities.',
-    author: 'Patricia Davis',
-    date: '2023-10-25',
-    category: 'Sports Travel',
-    imageUrl: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop'
-  }
-];
+// API endpoint for backend
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
 export default function HomePage() {
   const formatDate = (dateString: string) => {
@@ -264,16 +114,72 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   
+  // Blog state
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [blogLoading, setBlogLoading] = useState(true);
+  const [blogError, setBlogError] = useState<string | null>(null);
+  
   // Blog pagination state
   const POSTS_PER_PAGE = 6;
   const [currentBlogPage, setCurrentBlogPage] = useState(1);
-  const totalBlogPages = Math.ceil(BLOG_POSTS.length / POSTS_PER_PAGE);
-  const showPagination = BLOG_POSTS.length > POSTS_PER_PAGE;
+  const totalBlogPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+  const showPagination = blogPosts.length > POSTS_PER_PAGE;
   
   // Calculate paginated blog posts
   const startIndex = (currentBlogPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
-  const paginatedBlogPosts = BLOG_POSTS.slice(startIndex, endIndex);
+  const paginatedBlogPosts = blogPosts.slice(startIndex, endIndex);
+  
+  // Fetch blog posts from backend
+  const fetchBlogPosts = useCallback(async () => {
+    try {
+      setBlogLoading(true);
+      setBlogError(null);
+      const response = await fetch(`${API_BASE_URL}/blogs?limit=100`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch blog posts');
+      }
+      const data = await response.json();
+      // Handle both response formats: {posts: [...]} or [...]
+      const posts = data.posts || data;
+      // Convert image_url to imageUrl for frontend compatibility
+      const formattedPosts = posts.map((post: any) => ({
+        ...post,
+        imageUrl: post.image_url || post.imageUrl,
+      }));
+      setBlogPosts(formattedPosts);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      setBlogError(error instanceof Error ? error.message : 'Failed to load blog posts');
+    } finally {
+      setBlogLoading(false);
+    }
+  }, []);
+
+  // Initial fetch and auto-refresh
+  useEffect(() => {
+    // Initial fetch
+    fetchBlogPosts();
+    
+    // Auto-refresh every 30 seconds
+    const interval = setInterval(() => {
+      fetchBlogPosts();
+    }, 30000); // 30 seconds
+    
+    // Refresh when page becomes visible (user switches back to tab)
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        fetchBlogPosts();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Cleanup
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [fetchBlogPosts]);
   
   const handleBlogPageChange = (page: number) => {
     setCurrentBlogPage(page);
@@ -376,12 +282,36 @@ export default function HomePage() {
           {/* Blog Section - Always visible */}
           <div id="blog-section" className="mt-16">
             <div className="text-center mb-12">
-              <h2 
-                className="text-3xl md:text-4xl font-bold mb-4 transition-colors"
-                style={{ color: 'var(--foreground)' }}
-              >
-                Hotel Travel Blog
-              </h2>
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <h2 
+                  className="text-3xl md:text-4xl font-bold transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  Hotel Travel Blog
+                </h2>
+                <button
+                  onClick={fetchBlogPosts}
+                  disabled={blogLoading}
+                  className="px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+                  style={{
+                    backgroundColor: blogLoading ? 'transparent' : 'var(--secondary-blue)',
+                    color: blogLoading ? 'var(--card-text-secondary)' : '#ffffff',
+                    border: blogLoading ? '1px solid var(--card-border)' : 'none'
+                  }}
+                  title="Refresh blog posts"
+                >
+                  {blogLoading ? (
+                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  ) : (
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  )}
+                </button>
+              </div>
               <p 
                 className="text-lg mb-8 transition-colors"
                 style={{ color: 'var(--card-text-secondary)' }}
@@ -390,9 +320,32 @@ export default function HomePage() {
               </p>
             </div>
 
+            {/* Blog Loading State */}
+            {blogLoading && (
+              <div className="text-center py-12">
+                <div className="inline-block">
+                  <svg className="animate-spin h-12 w-12" style={{ color: 'var(--secondary-blue)' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <p className="mt-4 transition-colors" style={{ color: 'var(--card-text-secondary)' }}>
+                  Loading blog posts...
+                </p>
+              </div>
+            )}
+
+            {/* Blog Error State */}
+            {!blogLoading && blogError && (
+              <div className="text-center py-12">
+                <p className="text-lg text-red-500">{blogError}</p>
+              </div>
+            )}
+
             {/* Blog Posts Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {paginatedBlogPosts.map((post) => (
+            {!blogLoading && !blogError && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginatedBlogPosts.map((post) => (
                 <article
                   key={post.id}
                   className="rounded-lg shadow-lg overflow-hidden transition-all hover:shadow-xl"
@@ -473,11 +426,21 @@ export default function HomePage() {
                     </button>
                   </div>
                 </article>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
+
+            {/* No Blog Posts */}
+            {!blogLoading && !blogError && blogPosts.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-lg transition-colors" style={{ color: 'var(--card-text-secondary)' }}>
+                  No blog posts available yet.
+                </p>
+              </div>
+            )}
 
             {/* Pagination Controls */}
-            {showPagination && (
+            {!blogLoading && !blogError && showPagination && (
               <div className="mt-12 flex items-center justify-center gap-2">
                 {/* Previous Button */}
                 <button
