@@ -209,32 +209,111 @@ export default function HomePage() {
       className="min-h-screen transition-colors"
       style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 
               className="text-4xl md:text-5xl font-bold mb-4 transition-colors"
               style={{ color: 'var(--foreground)' }}
             >
-              Hotel Recommendation AI
+              🌍 TravelPlannerBro: Your Intelligent Accommodation Partner
             </h1>
             <p 
-              className="text-lg mb-8 transition-colors"
+              className="text-lg mb-6 transition-colors"
               style={{ color: 'var(--card-text-secondary)' }}
             >
               Describe your ideal hotel and let our AI find the perfect match for you
             </p>
           </div>
 
-          {/* Chat Panel */}
-          <div className="mb-12">
-            <ChatPanel onSendMessage={handleSendMessage} isLoading={isLoading} />
+          {/* Introduction Section with Chat Panel */}
+          <div 
+            className="mb-8 p-6 md:p-8 rounded-lg"
+            style={{
+              backgroundColor: 'var(--card-bg)',
+              borderColor: 'var(--card-border)',
+              borderWidth: '1px',
+              borderStyle: 'solid'
+            }}
+          >
+            <div className="max-w-3xl mx-auto space-y-6">
+              <p 
+                className="text-base leading-relaxed transition-colors"
+                style={{ color: 'var(--card-text)' }}
+              >
+                Are you ready to travel, but fatigued by the endless search for the perfect accommodation?
+              </p>
+              <p 
+                className="text-base leading-relaxed transition-colors"
+                style={{ color: 'var(--card-text)' }}
+              >
+                We understand that trip planning should be exciting, not exhaustive. Welcome to <strong style={{ color: 'var(--foreground)' }}>TravelPlannerBro</strong>, the streamlined solution that transforms how you find and book your next stay.
+              </p>
+              
+              <div className="mt-6">
+                <h3 
+                  className="text-xl font-semibold mb-3 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  Our Intelligent Approach
+                </h3>
+                <p 
+                  className="text-base leading-relaxed mb-4 transition-colors"
+                  style={{ color: 'var(--card-text)' }}
+                >
+                  We eliminate the complexity of traditional booking platforms by leveraging advanced AI to deliver personalized recommendations. Our system acts as your dedicated accommodation consultant—we call him your <strong style={{ color: 'var(--foreground)' }}>"AI Bro."</strong>
+                </p>
+                <p 
+                  className="text-base leading-relaxed mb-3 transition-colors"
+                  style={{ color: 'var(--card-text)' }}
+                >
+                  The process is simple and intuitive:
+                </p>
+                <ul 
+                  className="list-disc list-inside space-y-2 ml-4 mb-4"
+                  style={{ color: 'var(--card-text)' }}
+                >
+                  <li>
+                    <strong>Submit Your Criteria:</strong> Enter a natural language prompt detailing your needs. Tell us your destination, travel dates, budget, desired amenities (e.g., proximity to nightlife, a swimming pool), and group size.
+                  </li>
+                  <li>
+                    <strong>Instant Matching:</strong> Our AI rapidly analyzes a vast database of hotels and rooms to identify options that perfectly align with your specific requirements and preferences.
+                  </li>
+                  <li>
+                    <strong>Receive Your Recommendation:</strong> You receive a carefully curated suggestion, saving you hours of research and ensuring your accommodation meets your expectations.
+                  </li>
+                </ul>
+                <p 
+                  className="text-base leading-relaxed mb-4 transition-colors"
+                  style={{ color: 'var(--card-text)' }}
+                >
+                  Efficiency meets relevance. We provide immediate, highly relevant choices so you can transition from planning to anticipation faster.
+                </p>
+                <p 
+                  className="text-base leading-relaxed font-medium mb-2 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  Ready to simplify your travel preparation?
+                </p>
+                <p 
+                  className="text-base leading-relaxed mb-6 transition-colors"
+                  style={{ color: 'var(--card-text)' }}
+                >
+                  ➡️ Enter your prompt now and let our AI find your ideal accommodation.
+                </p>
+              </div>
+
+              {/* Chat Panel - Integrated */}
+              <div className="mt-8 pt-6 border-t" style={{ borderColor: 'var(--card-border)' }}>
+                <ChatPanel onSendMessage={handleSendMessage} isLoading={isLoading} />
+              </div>
+            </div>
           </div>
 
           {/* Loading State */}
           {isLoading && (
-            <div className="text-center py-12">
+            <div className="text-center py-8">
               <div className="inline-block">
                 <svg className="animate-spin h-12 w-12" style={{ color: 'var(--secondary-blue)' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -252,14 +331,14 @@ export default function HomePage() {
 
           {/* Hotel Results */}
           {!isLoading && hasSearched && hotels.length > 0 && (
-            <div>
+            <div className="mt-8">
               <h2 
                 className="text-2xl font-bold mb-6 transition-colors"
                 style={{ color: 'var(--foreground)' }}
               >
                 Recommended Hotels
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 {hotels.map((hotel) => (
                   <HotelCard key={hotel.id} hotel={hotel} />
                 ))}
@@ -269,7 +348,7 @@ export default function HomePage() {
 
           {/* No Results State */}
           {!isLoading && hasSearched && hotels.length === 0 && (
-            <div className="text-center py-12">
+            <div className="text-center py-8">
               <p 
                 className="text-lg transition-colors"
                 style={{ color: 'var(--card-text-secondary)' }}
@@ -280,8 +359,8 @@ export default function HomePage() {
           )}
 
           {/* Blog Section - Always visible */}
-          <div id="blog-section" className="mt-16">
-            <div className="text-center mb-12">
+          <div id="blog-section" className="mt-12">
+            <div className="text-center mb-8">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <h2 
                   className="text-3xl md:text-4xl font-bold transition-colors"
@@ -322,7 +401,7 @@ export default function HomePage() {
 
             {/* Blog Loading State */}
             {blogLoading && (
-              <div className="text-center py-12">
+              <div className="text-center py-8">
                 <div className="inline-block">
                   <svg className="animate-spin h-12 w-12" style={{ color: 'var(--secondary-blue)' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -337,18 +416,18 @@ export default function HomePage() {
 
             {/* Blog Error State */}
             {!blogLoading && blogError && (
-              <div className="text-center py-12">
+              <div className="text-center py-8">
                 <p className="text-lg text-red-500">{blogError}</p>
               </div>
             )}
 
             {/* Blog Posts Grid */}
             {!blogLoading && !blogError && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 {paginatedBlogPosts.map((post) => (
                 <article
                   key={post.id}
-                  className="rounded-lg shadow-lg overflow-hidden transition-all hover:shadow-xl"
+                  className="rounded-lg shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col h-full"
                   style={{
                     backgroundColor: 'var(--card-bg)',
                     borderColor: 'var(--card-border)',
@@ -357,7 +436,7 @@ export default function HomePage() {
                   }}
                 >
                   {/* Blog Image */}
-                  <div className="relative h-48 w-full overflow-hidden">
+                  <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
                     <img
                       src={post.imageUrl}
                       alt={post.title}
@@ -373,8 +452,8 @@ export default function HomePage() {
                   </div>
 
                   {/* Blog Content */}
-                  <div className="p-6">
-                    <div className="mb-3">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="mb-3 flex-shrink-0">
                       <span
                         className="inline-block px-3 py-1 rounded-full text-xs font-medium"
                         style={{
@@ -387,20 +466,20 @@ export default function HomePage() {
                     </div>
 
                     <h3 
-                      className="text-xl font-bold mb-2 transition-colors line-clamp-2"
+                      className="text-xl font-bold mb-2 transition-colors line-clamp-2 flex-shrink-0"
                       style={{ color: 'var(--card-text)' }}
                     >
                       {post.title}
                     </h3>
 
                     <p 
-                      className="text-sm mb-4 transition-colors line-clamp-3"
+                      className="text-sm mb-4 transition-colors line-clamp-3 flex-grow"
                       style={{ color: 'var(--card-text-secondary)' }}
                     >
                       {post.excerpt}
                     </p>
 
-                    <div className="flex items-center justify-between text-xs mb-4">
+                    <div className="flex items-center justify-between text-xs mb-4 flex-shrink-0">
                       <span style={{ color: 'var(--card-text-secondary)' }}>
                         {post.author}
                       </span>
@@ -410,7 +489,7 @@ export default function HomePage() {
                     </div>
 
                     <button
-                      className="w-full py-2 rounded-lg font-medium transition-all hover:scale-105"
+                      className="w-full py-2 rounded-lg font-medium transition-all hover:scale-105 flex-shrink-0"
                       style={{
                         backgroundColor: 'var(--secondary-blue)',
                         color: '#ffffff'
@@ -432,7 +511,7 @@ export default function HomePage() {
 
             {/* No Blog Posts */}
             {!blogLoading && !blogError && blogPosts.length === 0 && (
-              <div className="text-center py-12">
+              <div className="text-center py-8">
                 <p className="text-lg transition-colors" style={{ color: 'var(--card-text-secondary)' }}>
                   No blog posts available yet.
                 </p>
@@ -441,7 +520,7 @@ export default function HomePage() {
 
             {/* Pagination Controls */}
             {!blogLoading && !blogError && showPagination && (
-              <div className="mt-12 flex items-center justify-center gap-2">
+              <div className="mt-8 flex items-center justify-center gap-2">
                 {/* Previous Button */}
                 <button
                   onClick={() => handleBlogPageChange(currentBlogPage - 1)}

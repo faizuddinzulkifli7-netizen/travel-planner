@@ -96,24 +96,28 @@ export default function ChatPanel({ onSendMessage, isLoading = false }: ChatPane
       {/* Suggestion Prompts */}
       <div>
         <p 
-          className="text-sm mb-3 transition-colors"
+          className="text-xs mb-3 transition-colors"
           style={{ color: 'var(--card-text-secondary)' }}
         >
           Try these suggestions:
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {SUGGESTION_PROMPTS.map((prompt, index) => (
             <button
               key={index}
               onClick={() => handleSuggestionClick(prompt)}
               disabled={isLoading}
-              className="px-4 py-3 rounded-full text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+              className="px-3 py-2 rounded-lg text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 line-clamp-2 text-center"
               style={{
                 backgroundColor: 'var(--secondary-blue)',
                 color: '#ffffff',
                 borderColor: 'var(--secondary-blue)',
                 borderWidth: '1px',
-                borderStyle: 'solid'
+                borderStyle: 'solid',
+                minHeight: '3rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
               onMouseEnter={(e) => {
                 if (!isLoading) {
