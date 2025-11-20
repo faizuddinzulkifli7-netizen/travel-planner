@@ -250,15 +250,6 @@ export default function HomePage() {
             }}
           >
             <div className="max-w-3xl mx-auto space-y-6">
-              <div className="text-center mb-6">
-                <h2 
-                  className="text-2xl md:text-3xl font-bold mb-4 transition-colors"
-                  style={{ color: 'var(--foreground)' }}
-                >
-                  ⭐ TravelPlannerBro: Intelligent Accommodation Sourcing
-                </h2>
-              </div>
-              
               <p 
                 className="text-base leading-relaxed transition-colors"
                 style={{ color: 'var(--card-text)' }}
