@@ -229,13 +229,13 @@ export default function HomePage() {
               className="text-4xl md:text-5xl font-bold mb-4 transition-colors"
               style={{ color: 'var(--foreground)' }}
             >
-              🌍 TravelPlannerBro: Your Intelligent Accommodation Partner
+              ⭐ TravelPlannerBro: Intelligent Accommodation Sourcing
             </h1>
             <p 
               className="text-lg mb-6 transition-colors"
               style={{ color: 'var(--card-text-secondary)' }}
             >
-              Describe your ideal hotel and let our AI find the perfect match for you
+              Revolutionize your booking process with advanced AI
             </p>
           </div>
 
@@ -250,17 +250,27 @@ export default function HomePage() {
             }}
           >
             <div className="max-w-3xl mx-auto space-y-6">
+              <div className="text-center mb-6">
+                <h2 
+                  className="text-2xl md:text-3xl font-bold mb-4 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  ⭐ TravelPlannerBro: Intelligent Accommodation Sourcing
+                </h2>
+              </div>
+              
               <p 
                 className="text-base leading-relaxed transition-colors"
                 style={{ color: 'var(--card-text)' }}
               >
-                Are you ready to travel, but fatigued by the endless search for the perfect accommodation?
+                Tired of exhaustive searching? TravelPlannerBro revolutionizes your booking process by using advanced AI to secure your perfect stay, effortlessly.
               </p>
+              
               <p 
                 className="text-base leading-relaxed transition-colors"
                 style={{ color: 'var(--card-text)' }}
               >
-                We understand that trip planning should be exciting, not exhaustive. Welcome to <strong style={{ color: 'var(--foreground)' }}>TravelPlannerBro</strong>, the streamlined solution that transforms how you find and book your next stay.
+                We believe the path to an exceptional trip shouldn't be complicated. Our platform transforms your planning phase from overwhelming research into rapid, precise decision-making.
               </p>
               
               <div className="mt-6">
@@ -268,51 +278,33 @@ export default function HomePage() {
                   className="text-xl font-semibold mb-3 transition-colors"
                   style={{ color: 'var(--foreground)' }}
                 >
-                  Our Intelligent Approach
+                  How It Works
                 </h3>
                 <p 
                   className="text-base leading-relaxed mb-4 transition-colors"
                   style={{ color: 'var(--card-text)' }}
                 >
-                  We eliminate the complexity of traditional booking platforms by leveraging advanced AI to deliver personalized recommendations. Our system acts as your dedicated accommodation consultant—we call him your <strong style={{ color: 'var(--foreground)' }}>"AI Bro."</strong>
+                  Transition from planning to booking in three simple steps:
                 </p>
-                <p 
-                  className="text-base leading-relaxed mb-3 transition-colors"
-                  style={{ color: 'var(--card-text)' }}
-                >
-                  The process is simple and intuitive:
-                </p>
-                <ul 
-                  className="list-disc list-inside space-y-2 ml-4 mb-4"
+                <ol 
+                  className="list-decimal list-inside space-y-3 ml-4 mb-4"
                   style={{ color: 'var(--card-text)' }}
                 >
                   <li>
-                    <strong>Submit Your Criteria:</strong> Enter a natural language prompt detailing your needs. Tell us your destination, travel dates, budget, desired amenities (e.g., proximity to nightlife, a swimming pool), and group size.
+                    <strong>Define Your Needs:</strong> Submit your detailed criteria in plain language.
                   </li>
                   <li>
-                    <strong>Instant Matching:</strong> Our AI rapidly analyzes a vast database of hotels and rooms to identify options that perfectly align with your specific requirements and preferences.
+                    <strong>AI Analysis:</strong> Our intelligent "Bro" system instantaneously processes your request.
                   </li>
                   <li>
-                    <strong>Receive Your Recommendation:</strong> You receive a carefully curated suggestion, saving you hours of research and ensuring your accommodation meets your expectations.
+                    <strong>Secure Your Stay:</strong> Review the top recommendation and finalize your booking with confidence.
                   </li>
-                </ul>
-                <p 
-                  className="text-base leading-relaxed mb-4 transition-colors"
-                  style={{ color: 'var(--card-text)' }}
-                >
-                  Efficiency meets relevance. We provide immediate, highly relevant choices so you can transition from planning to anticipation faster.
-                </p>
-                <p 
-                  className="text-base leading-relaxed font-medium mb-2 transition-colors"
-                  style={{ color: 'var(--foreground)' }}
-                >
-                  Ready to simplify your travel preparation?
-                </p>
+                </ol>
                 <p 
                   className="text-base leading-relaxed mb-6 transition-colors"
                   style={{ color: 'var(--card-text)' }}
                 >
-                  ➡️ Enter your prompt now and let our AI find your ideal accommodation.
+                  Ready to experience the future of travel planning?
                 </p>
               </div>
 
