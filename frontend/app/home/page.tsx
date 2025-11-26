@@ -355,8 +355,6 @@ export default function HomePage() {
             }}
           >
             <div className="max-w-3xl mx-auto space-y-6">
-              
-              
               <p 
                 className="text-base leading-relaxed transition-colors"
                 style={{ color: 'var(--card-text)' }}
